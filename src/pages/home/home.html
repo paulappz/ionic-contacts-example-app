@@ -1,14 +1,42 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Contacts
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-searchbar (ionInput)="filterContacts($event)">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding #slidingitem *ngFor="let contact of contacts, let i = index">
+
+      <ion-item (click)="onContactClick(contact)">
+        <ion-avatar item-start>
+          <img src="{{ contact.picture.thumbnail }}" alt="" />
+        </ion-avatar>
+        <h2>{{ contact.name.title }} {{ contact.name.first }} {{ contact.name.last }}</h2>
+        <p>
+          {{ contact.phone }}
+        </p>
+      </ion-item>
+
+
+      <ion-item-options side="right">
+        <button ion-button (click) = "addToFavorite(contact,slidingitem)"  *ngIf = !contact.isFavorite>
+          <ion-icon name="star"></ion-icon>
+          Favorite
+        </button>
+        <button ion-button color="danger" (click)="deleteContact(i)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
 </ion-content>

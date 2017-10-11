@@ -1,0 +1,95 @@
+<!--
+  Generated template for the ContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ contact.name.title }} {{ contact.name.first }} {{ contact.name.last }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="callContact()">
+        <ion-icon name="call"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="mailContact()">
+        <ion-icon name="mail"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="{{ contact.picture.large }}" alt="" />
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          Personal Details
+        </ion-col>
+        <ion-col text-right>
+          <ion-icon *ngIf="contact.isFavorite" name="star"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          Gender
+        </ion-col>
+        <ion-col>
+          {{ contact.gender }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Address
+        </ion-col>
+        <ion-col>
+          {{ contact.location.street }},<br />
+          {{ contact.location.city }}, {{ contact.location.state }},<br />
+          {{ contact.location.state }} - {{ contact.location.state }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Dob
+        </ion-col>
+        <ion-col>
+          {{ contact.dob | date }}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Contact Details
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          Email
+        </ion-col>
+        <ion-col>
+          {{ contact.email }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Phone
+        </ion-col>
+        <ion-col>
+          {{ contact.phone }}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

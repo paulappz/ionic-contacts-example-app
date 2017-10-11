@@ -1,5 +1,8 @@
 {
   "name": "ionicContactsApp",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "1ca8ff9c",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
